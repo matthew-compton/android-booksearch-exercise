@@ -9,6 +9,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name=".activities.BookListActivity"
             android:label="@string/app_name" >
@@ -22,6 +23,18 @@
             android:name=".activities.BookDetailActivity"
             android:label="@string/title_activity_book_detail" >
         </activity>
+
+        <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.codepath.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
+
     </application>
 
 </manifest>
